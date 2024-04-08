@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AddUser from "./addUser";
+import styled from "styled-components";
 
 const SampleButton = () => {
   const [count, setCount] = useState(0);
@@ -22,6 +23,10 @@ const initialUser = [
   { id: 2, name: "Park" },
 ];
 
+const UserList = styled.div`
+  text-align: center;
+`;
+
 export default function User() {
   const [user, setUser] = useState(initialUser);
 
@@ -36,17 +41,13 @@ export default function User() {
   }
 
   return (
-    <>
+    <UserList>
       <AddUser onAddUser={handleAddUser} />
 
-      <div>
-        <ul>
-          {user.map((user) => (
-            <li key={user.id}>{user.name}</li>
-          ))}
-        </ul>
-        <SampleButton />
-      </div>
-    </>
+      {user.map((user) => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+      <SampleButton />
+    </UserList>
   );
 }
