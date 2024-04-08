@@ -5,7 +5,7 @@ interface UserProps {
   onAddUser: (name: string) => void;
 }
 
-const AddUser: React.FC<UserProps> = ({ onAddUser }: UserProps) => {
+const AddUser = ({ onAddUser }: UserProps) => {
   const [name, setName] = useState("");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
